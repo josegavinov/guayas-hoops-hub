@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import MissionVision from "@/components/MissionVision";
+import Directiva from "@/components/Directiva";
 import Tournaments from "@/components/Tournaments";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ const Index = () => {
       <Hero />
       <About />
       <MissionVision />
+      <Directiva />
       <Tournaments />
       <CTA />
       <Footer />

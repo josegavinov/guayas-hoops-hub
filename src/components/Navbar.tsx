@@ -32,6 +32,9 @@ const Navbar = () => {
             <button onClick={() => scrollToSection("mision")} className="text-foreground hover:text-primary transition-colors font-medium">
               Misión y Visión
             </button>
+            <button onClick={() => scrollToSection("directiva")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Directiva
+            </button>
             <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium">
               Torneos
             </button>
@@ -64,6 +67,9 @@ const Navbar = () => {
               </button>
               <button onClick={() => scrollToSection("mision")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
                 Misión y Visión
+              </button>
+              <button onClick={() => scrollToSection("directiva")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Directiva
               </button>
               <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
                 Torneos

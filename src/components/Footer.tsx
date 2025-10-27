@@ -26,6 +26,11 @@ const Footer = () => {
                 </button>
               </li>
               <li>
+                <button onClick={() => document.getElementById("directiva")?.scrollIntoView({ behavior: "smooth" })} className="text-background/70 hover:text-background transition-colors">
+                  Directiva
+                </button>
+              </li>
+              <li>
                 <button onClick={() => document.getElementById("torneos")?.scrollIntoView({ behavior: "smooth" })} className="text-background/70 hover:text-background transition-colors">
                   Torneos
                 </button>
