@@ -1,0 +1,85 @@
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Button } from "./ui/button";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          <div className="text-2xl font-bold text-gradient">
+            ABG
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <button onClick={() => scrollToSection("inicio")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Inicio
+            </button>
+            <button onClick={() => scrollToSection("nosotros")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Nosotros
+            </button>
+            <button onClick={() => scrollToSection("mision")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Misión y Visión
+            </button>
+            <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Torneos
+            </button>
+            <Button 
+              onClick={() => window.open("https://copafacil.com/-aakm9@mre7", "_blank")}
+              className="bg-primary hover:bg-primary/90"
+            >
+              Únete
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-foreground"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden py-4 animate-fade-in">
+            <div className="flex flex-col gap-4">
+              <button onClick={() => scrollToSection("inicio")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Inicio
+              </button>
+              <button onClick={() => scrollToSection("nosotros")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Nosotros
+              </button>
+              <button onClick={() => scrollToSection("mision")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Misión y Visión
+              </button>
+              <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Torneos
+              </button>
+              <Button 
+                onClick={() => window.open("https://copafacil.com/-aakm9@mre7", "_blank")}
+                className="bg-primary hover:bg-primary/90 w-full"
+              >
+                Únete
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
