@@ -38,11 +38,14 @@ const Navbar = () => {
             <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium">
               Torneos
             </button>
+            <button onClick={() => scrollToSection("inscripcion")} className="text-foreground hover:text-primary transition-colors font-medium">
+              Inscripción
+            </button>
             <Button 
               onClick={() => window.open("https://copafacil.com/-aakm9@mre7", "_blank")}
               className="bg-primary hover:bg-primary/90"
             >
-              Únete
+              Perfil Copa Facil
             </Button>
           </div>
 
@@ -73,6 +76,9 @@ const Navbar = () => {
               </button>
               <button onClick={() => scrollToSection("torneos")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
                 Torneos
+              </button>
+              <button onClick={() => scrollToSection("inscripcion")} className="text-foreground hover:text-primary transition-colors font-medium py-2">
+                Inscripción
               </button>
               <Button 
                 onClick={() => window.open("https://copafacil.com/-aakm9@mre7", "_blank")}
