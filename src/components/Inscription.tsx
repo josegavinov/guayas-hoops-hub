@@ -3,6 +3,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const Inscription = () => {
   const { toast } = useToast();
@@ -26,11 +28,15 @@ const Inscription = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
-      // Aquí puedes integrar tu servicio de envío de emails o API
-      console.log("Form data:", formData);
-      
+      const payload = {
+        ...formData,
+        createdAt: new Date().toISOString(),
+      };
+
+      // Usando Firestore SDK
+      await addDoc(collection(db, 'inscriptions'), payload);
+
       toast({
         title: "¡Inscripción enviada!",
         description: "Nos pondremos en contacto contigo pronto.",
@@ -44,9 +50,10 @@ const Inscription = () => {
         message: "",
       });
     } catch (error) {
+      console.error("Error al enviar inscripción:", error);
       toast({
         title: "Error",
-        description: "Ocurrió un error al enviar el formulario.",
+        description: error instanceof Error ? error.message : "Ocurrió un error al enviar el formulario. Revisa la consola.",
         variant: "destructive",
       });
     } finally {
