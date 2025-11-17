@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import heroImage from "@/assets/hero-basketball-court.jpg";
+import heroImage from "@/assets/landing-1-cancha.jpg";
 
 const Hero = () => {
   const scrollToTournaments = () => {
